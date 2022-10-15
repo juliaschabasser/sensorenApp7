@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <p class="col-md-1 col-sm-2">Sensor</p>
+        <p class="col-md-2 col-sm-3">Datum</p>
+        <p class="col-md-1 col-sm-1">Temperatur</p>
+        <p class="col-md-1 col-sm-1">Luftfeutigkeit</p>
+        <p class="col-md-2 col-sm-2">Standort</p>
+        <p class="col-md-1 col-sm-2">Position</p>
+        <p class="col-md-1 col-sm-1"></p>
+    </div>
+    <div *ngFor="let item of storeService.sensorenDaten" class="row justify-content-center">
+        <div class="row justify-content-center">
+            <p class="col-md-1 col-sm-2">{{item.sensor.name}}</p>
+            <p class="col-md-2 col-sm-3">{{item.date | date:'longDate'}}</p>
+            <p class="col-md-1 col-sm-1">{{item.temperature}} °C</p>
+            <p class="col-md-1 col-sm-1">{{item.humidity}} %</p>
+            <p class="col-md-2 col-sm-2">{{item.sensor.location}}</p>
+            <p class="col-md-1 col-sm-2">{{SensorPosition[item.sensor.position]}}</p>
+            <div class="col-md-1 col-sm-1 column">
+                <mat-icon (click)="deleteSensordata(item.id)">delete</mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <button [ngClass]="(i + 1) == currentPage ? 'active' : 'inactive'" type="button" class="btn btn-outline-warning pageButton" (click)="selectPage(i)" *ngFor="let page of [].constructor(pages); let i = index">{{i + 1}}</button>
+        </div>
+    </div>
+</div>
