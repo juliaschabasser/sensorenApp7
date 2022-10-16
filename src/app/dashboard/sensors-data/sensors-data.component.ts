@@ -15,7 +15,6 @@ export class SensorsDataComponent implements OnInit {
 
   constructor(private backendService: BackendService, public storeService: StoreService) { }
 
-  public toDeleteItemId: number | undefined;
   public pages: number = 0;
   public currentPage: number = 1;
 
@@ -28,7 +27,6 @@ export class SensorsDataComponent implements OnInit {
   }
 
   async deleteSensordata(id: number) {
-    this.toDeleteItemId = id;
     await this.backendService.deleteSensorsDaten(id, this.currentPage);
   }
 
