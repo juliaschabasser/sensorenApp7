@@ -15,7 +15,6 @@ export class SensorsDataComponent implements OnInit {
 
   constructor(private backendService: BackendService, public storeService: StoreService) { }
 
-  public isDeleting = false;
   public toDeleteItemId: number | undefined;
   public pages: number = 0;
   public currentPage: number = 1;
@@ -30,9 +29,7 @@ export class SensorsDataComponent implements OnInit {
 
   async deleteSensordata(id: number) {
     this.toDeleteItemId = id;
-    this.isDeleting = true
     await this.backendService.deleteSensorsDaten(id, this.currentPage);
-    this.isDeleting = false;
   }
 
   async selectPage(i: any) {
