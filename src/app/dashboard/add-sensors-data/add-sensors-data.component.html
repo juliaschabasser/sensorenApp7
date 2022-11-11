@@ -1,8 +1,10 @@
-<app-button
-  class="float-right"
-  [isOpen]="showAddTask"
-  (btnClick)="toggleAddTask()"
-></app-button>
+<div class="align-flex-end">
+  <app-button
+    class="float-right"
+    [isOpen]="showAddTask"
+    (btnClick)="toggleAddTask()"
+  ></app-button>
+</div>
 <form [formGroup]="sensorenDataForm" (ngSubmit)="onSubmit()" *ngIf="showAddTask">
   <h2>Neuen Messwert hinzufügen</h2>
     <select formControlName="sensorId">

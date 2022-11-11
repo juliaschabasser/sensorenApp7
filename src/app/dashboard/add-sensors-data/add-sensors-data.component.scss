@@ -52,3 +52,8 @@ input[type=submit]:hover {
 .float-right {
     float: right;
 }
+
+.align-flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
